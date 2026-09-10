@@ -1,7 +1,15 @@
-<h1>Lista de Mascotas en Adopción</h1>
-<p>Estas son las mascotas que buscan un hogar.</p>
-<ul>
-    <li>Firulais - Perro</li>
-    <li>Michi - Gato</li>
-</ul>
-<a href="/">Volver al inicio</a>
+{% extends "base.html" %}
+
+{% block title %}Mascotas - PatitaFeliz{% endblock %}
+
+{% block content %}
+    <h1>Lista de Mascotas en Adopción</h1>
+    <p>Estas son las mascotas que buscan un hogar.</p>
+    <ul>
+        {% for mascota in mascotas %}
+        <li><a href="{% url 'detalle_mascota' mascota.pk %}">{{ mascota.nombre }} - {{ mascota.especie }}</a></li>
+        {% empty %}
+        <li>No hay mascotas disponibles por el momento.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
