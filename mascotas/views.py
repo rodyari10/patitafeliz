@@ -17,5 +17,11 @@ def nosotros(request):
     return render(request, 'nosotros.html')
 
 def adoptar(request):
-    form = SolicitudForm()
+    if request.method == 'POST':
+        form = SolicitudForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'gracias.html')
+    else:
+        form = SolicitudForm()
     return render(request, 'adoptar.html', {'form': form})
