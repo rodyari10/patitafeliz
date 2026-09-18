@@ -39,7 +39,7 @@ PatitaFeliz es una plataforma que centraliza la información de animales en busc
 ```bash
 git clone https://github.com/rodyari10/patitafeliz.git
 cd patitafeliz
-
+```
 2. Crear y activar entorno virtual:
 python3 -m venv venv
 source venv/bin/activate
